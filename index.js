@@ -3,6 +3,7 @@ import cors from "cors"
 import { connection } from "./db.js"
 import userRouter from "./routes/user.route.js"
 import * as dotenv from 'dotenv'
+dotenv.config()
 
 const app = express()
 const port = 3000
