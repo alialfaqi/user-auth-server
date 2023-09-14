@@ -30,7 +30,7 @@ const signIn = async (req, res, next) => {
     if (!foundedUser) return next(new AppError("user not found", 500))
     const matched = bcrypt.compareSync(password, foundedUser.password)
     if (!matched) return next(new AppError("wrong password", 401))
-    const token = jwt.sign({ id: foundedUser._id, first_name: foundedUser.first_name, last_name: foundedUser.last_name }, "tokenSignature")
+    const token = jwt.sign({ id: foundedUser._id, first_name: foundedUser.first_name, last_name: foundedUser.last_name })
     res.send({ message: "success", token })
 }
 
