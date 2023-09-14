@@ -5,6 +5,10 @@ export const connection = () => {
         .then(() => console.log('DB Connected!'))
         .catch(() => console.log('DB Failed!'))
 }
+// export const connection = () => {
+//     mongoose.connect('mongodb://127.0.0.1:27017/user')
+//         .then(() => console.log('DB Connected!'))
+//         .catch(() => console.log('DB Failed!'))
+// }
 
 
-// 'mongodb://127.0.0.1:27017/user'
