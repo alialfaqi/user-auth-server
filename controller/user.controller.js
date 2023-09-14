@@ -18,7 +18,7 @@ const signUp = async (req, res, next) => {
     const addedUser = new userModel(req.body)
     await addedUser.save()
     res.send({
-        message: "user added", addedUser
+        message: "success", addedUser
     })
 }
 
