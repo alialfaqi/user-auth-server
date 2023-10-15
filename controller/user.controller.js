@@ -4,15 +4,15 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken"
 import AppError from "../utils/AppError.js";
 
-const getAll = async (req, res) => {
-    const users = await userModel.find();
-    res.send({ message: "Done", users })
-}
+// const getAll = async (req, res) => {
+//     const users = await userModel.find();
+//     res.send({ message: "Done", users })
+// }
 
 const signUp = async (req, res, next) => {
     const { email, password } = req.body;
     const foundedUser = await userModel.findOne({ email })
-    if (foundedUser) return next(new AppError("Duplicated User", 409))
+    if (foundedUser) return next(new AppError("Email is already registered", 409))
     const hashedPassword = await bcrypt.hash(password, 10)
     req.body.password = hashedPassword
     const addedUser = new userModel(req.body)
