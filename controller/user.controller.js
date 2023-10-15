@@ -4,10 +4,10 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken"
 import AppError from "../utils/AppError.js";
 
-// const getAll = async (req, res) => {
-//     const users = await userModel.find();
-//     res.send({ message: "Done", users })
-// }
+const getAll = async (req, res) => {
+    const users = await userModel.find();
+    res.send({ message: "Done", users })
+}
 
 const signUp = async (req, res, next) => {
     const { email, password } = req.body;
